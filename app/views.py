@@ -18,7 +18,7 @@ def Index(request):
         'currency_code': 'USD',
         'notify_url;': 'https://{}{}'.format(host, reverse('paypal-ipn')),
         'return_url;': 'https://{}{}'.format(host, reverse('payment_success')),
-        'cancel_ur;': 'https://{}{}'.format(host, reverse('payment_failed')),
+        'cancel_return;': 'https://{}{}'.format(host, reverse('payment_failed')),
     }
     paypal_form = PayPalPaymentsForm(initial=paypal_dict)
 
