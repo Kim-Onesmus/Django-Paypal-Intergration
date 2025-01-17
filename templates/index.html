@@ -3,28 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Paypal Intergration</title>
+    <title>Django PayPal Integration</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .custom-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #0070ba; /* PayPal blue */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .custom-button:hover {
+            background-color: #005ea6;
+            transform: scale(1.05);
+        }
+
+        .custom-button:active {
+            background-color: #003f73;
+            transform: scale(1);
+        }
+
+        .custom-button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 112, 186, 0.5);
+        }
+    </style>
 </head>
-<style>
-    body {
-        margin: 0%;
-        padding: 0%;
-    }
-    .image {
-        width: 100px;
-        height: 100px;
-        background-color: beige;
-        padding: 10px;
-        align-items: center;
-        margin: 0% auto;
-    }
-    #price {
-        bottom: 2px;
-    }
-</style>
 <body>
-    <div class="image">
-        {{paypal_form.render}}
+    <div class="container">
+        <h1>Make a Payment</h1>
+        <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
+            {% csrf_token %}
+            {{ paypal_form.as_p }}
+            <button type="submit" class="custom-button">Pay with PayPal</button>
+        </form>
     </div>
 </body>
 </html>
