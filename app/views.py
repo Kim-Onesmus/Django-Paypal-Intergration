@@ -11,7 +11,7 @@ def Index(request):
 
     paypal_dict = {
         'business': settings.PAYPAL_RECEIVER_EMAIL,
-        'amount': 10,
+        'amount': 1,
         'item_name': 'Oreder',
         'no_shipping': '2',
         'invoice': str(uuid.uuid4()),
