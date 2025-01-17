@@ -16,9 +16,9 @@ def Index(request):
         'no_shipping': '2',
         'invoice': str(uuid.uuid4()),
         'currency_code': 'USD',
-        'notify_url;': 'https://{}{}'.format(host, reverse('paypal-ipn')),
-        'return_url;': 'https://{}{}'.format(host, reverse('payment_success')),
-        'cancel_return;': 'https://{}{}'.format(host, reverse('payment_failed')),
+        'notify_url': 'https://{}{}'.format(host, reverse('paypal-ipn')),
+        'return_url': 'https://{}{}'.format(host, reverse('payment_success')),
+        'cancel_return': 'https://{}{}'.format(host, reverse('payment_failed')),
     }
     paypal_form = PayPalPaymentsForm(initial=paypal_dict)
 
