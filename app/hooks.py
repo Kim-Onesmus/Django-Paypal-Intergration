@@ -4,6 +4,7 @@ from django.dispatch import receiver
 from django.conf import settings
 import time
 
+
 @receiver(valid_ipn_received)
 def paypal_payment_received(sender, **kwargs):
     time.sleep(10)
